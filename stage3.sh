@@ -17,6 +17,7 @@ chmod 0755 /home/rottmrei/.ssh
 apt-get update
 apt-get upgrade -y
 apt-get install -y unattended-upgrades apt-listchanges sudo
+sed -i 's/^%sudo.*/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
 usermod -a -G sudo rottmrei
 touch /etc/systemd/system/k3s.service.env
 curl -o /usr/local/bin/k3s "https://raw.githubusercontent.com/rrottmann/postinst/master/dist/k3s/usr/local/bin/k3s"
