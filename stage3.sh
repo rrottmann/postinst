@@ -6,6 +6,7 @@ command -v curl || exit 1
 userdel --remove guest
 useradd --create-home rottmrei
 usermod --pass $(openssl rand -base64 32 | openssl passwd -1 -stdin) rottmrei
+usermod --pass $(openssl rand -base64 32 | openssl passwd -1 -stdin) root
 mkdir -p /home/rottmrei/.ssh
 ssh-keygen -b 2048 -t rsa -f /home/rottmrei/.ssh/id_rsa -q -N ""
 chown -R rottmrei:rottmrei /home/rottmrei/.ssh
