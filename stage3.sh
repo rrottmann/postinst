@@ -3,6 +3,7 @@
 [ -d /etc/systemd/system ] || exit 1
 [ -d /usr/local/bin ] || mkdir -p /usr/local/bin
 command -v curl || exit 1
+cp /etc/issue.net /etc/issue
 userdel --remove guest
 useradd --create-home rottmrei
 usermod --pass $(openssl rand -base64 32 | openssl passwd -1 -stdin) rottmrei
