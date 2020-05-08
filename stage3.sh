@@ -18,7 +18,7 @@ chmod 0600 /home/rottmrei/.ssh/id_rsa
 chmod 0755 /home/rottmrei/.ssh
 apt-get update
 apt-get upgrade -y
-apt-get install -y unattended-upgrades apt-listchanges sudo
+apt-get install -y unattended-upgrades apt-listchanges sudo bash-completion
 sed -i 's/^%sudo.*/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
 usermod -a -G sudo rottmrei
 touch /etc/systemd/system/k3s.service.env
@@ -31,3 +31,4 @@ ln -s /usr/local/bin/k3s /usr/local/bin/ctr
 curl -o /etc/systemd/system/k3s.service "https://raw.githubusercontent.com/rrottmann/postinst/master/dist/k3s/etc/systemd/system/k3s.service"
 systemctl daemon-reload
 systemctl start k3s.service
+echo "source <(kubectl completion bash)" >> /home/rottmrei/.bashrc 
