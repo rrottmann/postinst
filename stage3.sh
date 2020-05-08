@@ -31,4 +31,4 @@ ln -s /usr/local/bin/k3s /usr/local/bin/ctr
 curl -o /etc/systemd/system/k3s.service "https://raw.githubusercontent.com/rrottmann/postinst/master/dist/k3s/etc/systemd/system/k3s.service"
 systemctl daemon-reload
 systemctl start k3s.service
-echo "source <(kubectl completion bash)" >> /home/rottmrei/.bashrc 
+echo "source <(kubectl completion bash)" >> /root/.bashrc 
