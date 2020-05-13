@@ -16,9 +16,10 @@ chmod 0755 /home/rottmrei/.ssh/
 chmod 0644 /home/rottmrei/.ssh/authorized_keys
 chmod 0600 /home/rottmrei/.ssh/id_rsa
 chmod 0755 /home/rottmrei/.ssh
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get upgrade -y
-apt-get install -y unattended-upgrades apt-listchanges sudo bash-completion
+apt-get install -y unattended-upgrades apt-listchanges screen htop sudo bash-completion cryptsetup firmware-iwlwifi gnupg2 network-manager mc lvm2 python3-venv scdaemon zsh
 sed -i 's/^%sudo.*/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
 usermod -a -G sudo rottmrei
 touch /etc/systemd/system/k3s.service.env
