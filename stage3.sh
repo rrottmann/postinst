@@ -32,3 +32,4 @@ curl -o /etc/systemd/system/k3s.service "https://raw.githubusercontent.com/rrott
 systemctl daemon-reload
 systemctl start k3s.service
 echo "source <(kubectl completion bash)" >> /root/.bashrc 
+[ -f /root/stage4.sh ] && bash -c /root/stage4.sh
